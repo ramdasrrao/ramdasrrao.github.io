@@ -21,14 +21,23 @@
   </body>
 
 	<script type="text/javascript">
+		var engine_on = true;
 		$(document).ready(function() {
 			$("#a1").click(function(event) {
 						alert("You clicked me! ");
 			});
 			$("#r1").click(function(event) {
 				alert("Rectangle clicked");
-				$("#r1").css({fill: "red"});
-				$("#r1_t").html("Status: Off");
+
+				if (engine_on) {
+					$("#r1").css({fill: "red"});
+					$("#r1_t").html("Status: Off");
+				} else {
+					$("#r1").css({fill: "green"});
+					$("#r1_t").html("Status: On");
+				}
+
+				engine_on = !engine_on;
 			});
 			$("#c1").click(function(event) {
 				alert("Circle clicked");
